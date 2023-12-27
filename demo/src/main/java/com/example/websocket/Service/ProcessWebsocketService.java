@@ -24,13 +24,14 @@ public class ProcessWebsocketService {
     public void execute(){
         try {
             Thread.sleep(2000L);//Simulate delay
-            template.convertAndSend("/statusProcesoor", generateMessage(1));
-
-
-
-
+            template.convertAndSend("/statusProcessor", generateMessage(1));
+            Thread.sleep(2000L);//Simulate delay
+            template.convertAndSend("/statusProcessor", generateMessage(2));
+            Thread.sleep(2000L);//Simulate delay
+            template.convertAndSend("/statusProcessor", generateMessage(2));
+            
         } catch (Exception e) {
-            // TODO: handle exception
+            log.error("Error while process", e);
         }
     }
 
